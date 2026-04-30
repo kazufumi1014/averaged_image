@@ -1,4 +1,4 @@
 .DS_Store
-images/*
+images/*.jpg
 .venv
 averaged.jpg
