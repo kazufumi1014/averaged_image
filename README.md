@@ -2,20 +2,16 @@
 
 複数のJPEG画像を平均化して1枚の画像を生成するツールです。
 
+## 前提条件
+
+- Python 3.13以上がインストールされていること
+
 ## セットアップ
 
 ### 1. uvのインストール
 
-**Mac**
-
 ```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-**Windows（PowerShell）**
-
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+pip install uv
 ```
 
 ### 2. 依存パッケージのインストール
