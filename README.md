@@ -1,6 +1,6 @@
 # averaged_image
 
-複数のJPEG画像を平均化して1枚の画像を生成するツールです。
+複数のJPEG画像を合成して1枚の画像を生成するツールです。合成方法は引数で切り替えられます。
 
 ## 前提条件
 
@@ -24,12 +24,36 @@ uv sync
 
 ## 使い方
 
-### 基本的な使い方
+```
+uv run mixed_images.py [--mode {average,darkest}] [--input DIR] [--output FILE]
+```
 
-`images/` ディレクトリ内のJPEG画像を平均化し、`averaged.jpg` として保存します。
+### 引数
+
+| 引数 | デフォルト | 説明 |
+|------|-----------|------|
+| `--mode` | `average` | 合成方法。`average`（平均化）または `darkest`（最も暗いピクセルを採用） |
+| `--input` | `images` | 入力画像が格納されたディレクトリ |
+| `--output` | モードに依存 | 出力ファイルパス。省略時は `averaged.jpg` または `darkest.jpg` |
+
+### 使用例
+
+**平均化**（各ピクセルのRGB値を全画像で平均する）
 
 ```bash
-uv run average_images.py
+uv run mixed_images.py --mode average
+```
+
+**最暗値合成**（各ピクセル・チャンネルごとに最も暗い値を採用する）
+
+```bash
+uv run mixed_images.py --mode darkest
+```
+
+**入力ディレクトリと出力ファイルを指定する**
+
+```bash
+uv run mixed_images.py --mode darkest --input photos --output result.jpg
 ```
 
 ## 注意事項
